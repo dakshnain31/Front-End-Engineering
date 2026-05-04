@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About – Arman's Tech Blog</title>
+
+
+<script src="script.js" defer></script>
+<style>
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --text: #0f1724;
+  --primary: #4c6ef5;
+  --accent: #22c55e;
+  --radius: 12px;
+  --shadow: 0 8px 24px rgba(16,24,40,0.08);
+  --max-width: 900px;
+}
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --card: #0f1724;
+  --muted: #9aa4b2;
+  --text: #e6eef6;
+  --primary: #6b8cff;
+  --shadow: 0 8px 30px rgba(2,6,23,0.7);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+header {
+  background: linear-gradient(135deg,var(--primary),#3753d6);
+  color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 20px;
+}
+header h1 {
+  font-size: 2rem;
+}
+
+/* Navigation */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  margin: 20px;
+}
+nav a {
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: background .3s, color .3s;
+}
+nav a:hover, nav a.active {
+  background: rgba(51, 55, 71, 0.1);
+  color: var(--primary);
+}
+
+/* Main container */
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 40px 20px;
+  background: var(--card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Headings & paragraphs */
+.container h1 {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+.container p {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* Profile card */
+.profile-card {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  background: linear-gradient(135deg, rgba(76,110,245,0.06), rgba(34,197,94,0.04));
+  border: 1px solid rgba(76,110,245,0.12);
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 36px;
+}
+
+.profile-img-wrapper {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.profile-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: top center;
+  border: 4px solid var(--primary);
+  box-shadow: 0 8px 30px rgba(76,110,245,0.25);
+  display: block;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 40px rgba(76,110,245,0.35);
+}
+
+.profile-badge {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: var(--accent);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 2px solid var(--card);
+  letter-spacing: 0.04em;
+}
+
+.profile-info h2 {
+  font-size: 1.6rem;
+  margin: 0 0 4px;
+  color: var(--text);
+}
+
+.profile-info .role {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0 0 10px;
+}
+
+.profile-info p {
+  color: var(--muted);
+  font-size: 0.97rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.profile-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(76,110,245,0.08);
+  color: var(--primary);
+  border: 1px solid rgba(76,110,245,0.15);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.social-btn:hover {
+  background: rgba(76,110,245,0.15);
+  transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--muted);
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width:720px){
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .container {
+    padding: 30px 14px;
+  }
+  nav {
+    flex-direction: column;
+  }
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    padding: 22px 16px;
+  }
+  .profile-img {
+    width: 120px;
+    height: 120px;
+  }
+  .profile-social {
+    justify-content: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>About This Blog</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a class="active" href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="webdev.html">Web Dev</a>
+    <a href="ai.html">AI & ML</a>
+    <a href="technew.html">Tech News</a>
+    <a href="programming.html">Programming</a>
+    <a href="gadgets.html">Gadgets</a>
+</nav>
+
+<div class="container">
+
+    <!-- Profile Card with Photo -->
+    <div class="profile-card">
+      <div class="profile-img-wrapper">
+        <img
+          src="WhatsApp Image 2026-05-04 at 10.55.00 PM.jpeg"
+          alt="Daksh — Tech Blogger"
+          class="profile-img"
+        >
+        <span class="profile-badge">✦ Active</span>
+      </div>
+      <div class="profile-info">
+        <h2>Daksh Nain</h2>
+        <p class="role">Student · Developer · Tech Writer</p>
+        <p>Welcome to my tech blog! I'm someone who believes in building the future using technology. I share what I learn about web development, AI, programming, and gadgets.</p>
+        <div class="profile-social">
+          <a class="social-btn" href="contact.html">📬 Contact Me</a>
+          <a class="social-btn" href="index.html">📝 Read Blog</a>
+        </div>
+      </div>
+    </div>
+
+    <h1>Who Am I?</h1>
+    <p>
+        I'm Daksh Nain — a student, a learner, and someone who believes in 
+        building the future using technology. This website is my space to share what I learn about 
+        web development, programming, AI, gadgets, and the rapidly growing tech world.
+    </p>
+
+    <p>
+        I created this blog not just to publish content, but also to improve my writing, thinking, 
+        and documentation skills. Every article here is a step in my journey towards becoming a 
+        strong problem solver and builder.
+    </p>
+
+    <h1>Why This Blog?</h1>
+    <p>
+        Because writing helps clarity. And sharing helps consistency.  
+        Whether you're a beginner or someone exploring new topics, I hope this place becomes 
+        genuinely helpful.  
+        Every section (Web Development, AI, Programming, Gadgets) is crafted with simple 
+        explanations and real-world examples.
+    </p>
+
+    <h1>My Goals</h1>
+    <p>✔ Learn deeply  
+       ✔ Build consistently  
+       ✔ Document honestly  
+       ✔ Improve every day  
+       ✔ Share what matters  
+    </p>
+</div>
+
+<footer>
+    <p>&copy; 2026 Daksh's Tech Blog</p>
+</footer>
+
+</body>
+</html>
